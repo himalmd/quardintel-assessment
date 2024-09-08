@@ -6,6 +6,10 @@
     <title>Project Management Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container-fluid">
@@ -19,7 +23,7 @@
             
             <div class="col-2 bg-light sidebar">
                 <div class="position-sticky">
-                  <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+                  <div class="d-flex justify-content-between align-items-center p-3">
                     <div class="d-flex align-items-center">
                       <img src="/assets/img/innovate-logo.png" alt="Company Logo" class="rounded company-logo">
                       <div class="ms-3">
@@ -29,37 +33,51 @@
                     </div>
                     <img src="/assets/img/user1.png" alt="User Avatar" class="rounded-circle user-avatar">
                   </div>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex justify-content-between" aria-current="page" href="#">
+                  <hr>
+                    <ul class="nav flex-column px-3 py-1">
+                        <li class="nav-item p-2">
+                            
+                              <span class="d-flex align-items-center">
+                                <a class="nav-link d-flex justify-content-between" aria-current="page" href="#"></a>
                                 <i class="fas fa-palette me-2"></i> <!-- Icon for Design Team -->
                                 Design Team
                                 <span class="text-muted ms-auto">⌘ + 1</span>
-                            </a>
+                              </a>
+                              </span>
+                            
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex justify-content-between" href="#">
+                        <li class="nav-item p-2">
+                            
+                              <span class="d-flex align-items-center">
+                                <a class="nav-link d-flex justify-content-between" href="#"></a>
                                 <i class="fas fa-bullhorn me-2"></i> <!-- Icon for Marketing Team -->
                                 Marketing Team
                                 <span class="text-muted ms-auto">⌘ + 2</span>
-                            </a>
+                              </a>
+                                </span>
+                            
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex justify-content-between" href="#">
-                                <i class="fas fa-code me-2"></i> <!-- Icon for Development Team -->
-                                Development Team
-                                <span class="text-muted ms-auto">⌘ + 3</span>
-                            </a>
-                        </li>
+                        <li class="nav-item p-2">
+                            
+                          <span class="d-flex align-items-center">
+                            <a class="nav-link d-flex justify-content-between" href="#"></a>
+                            <i class="fas fa-code me-2"></i> <!-- Icon for Development Team -->
+                            Development Team
+                            <span class="text-muted ms-auto">⌘ + 3</span>
+                          </a>
+                            </span>
+                        
+                    </li>
+
                     </ul>
                     <hr>
-                    <a class="nav-link" href="#">
+                    <a class="nav-link px-3 py-1" href="#">
                         <i class="far fa-plus-square"></i> <!-- Icon for Development Team -->
                         Create a Team
                     </a>
                     <hr>
-                    <h6 class="sidebar-heading">Folders</h6>
-                    <ul class="nav flex-column mb-2">
+                    <h6 class="sidebar-heading px-3 py-1">Folders</h6>
+                    <ul class="nav flex-column px-3 py-1">
                         <li class="nav-item">
                             <!-- Expandable Menu for Products -->
                             <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
@@ -91,17 +109,17 @@
                         </li>
                         <li class="nav-item">
                             <!-- Expandable Menu for Products -->
-                            <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                            <a class="nav-link" data-bs-toggle="collapse" href="#salesSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
                                 <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
-                                Products
+                                Sales
                             </a>
-                            <div class="collapse" id="productsSubMenu">
+                            <div class="collapse" id="salesSubMenu">
                                 <ul class="nav flex-column ms-3">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-road me-2"></i> Roadmap</a>
+                                        <a class="nav-link" href="#"><i class="fas fa-road me-2"></i> Menu Item 1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#"><i class="fas fa-comments me-2"></i> Feedback</a>
+                                        <a class="nav-link" href="#"><i class="fas fa-comments me-2"></i> Meeu</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Performance</a>
@@ -118,6 +136,49 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="nav-item">
+                          <!-- Expandable Menu for Products -->
+                          <a class="nav-link" data-bs-toggle="collapse" href="#designSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                              <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
+                              Design
+                          </a>
+                          <div class="collapse" id="designSubMenu">
+                              <ul class="nav flex-column ms-3">
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-road me-2"></i> Roadmap</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-comments me-2"></i> Feedback</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Performance</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Team</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-chart-pie me-2"></i> Analytics</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="#"><i class="fas fa-plus-circle me-2"></i> Add New Sub</a>
+                                  </li>
+                              </ul>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                        <!-- Expandable Menu for Products -->
+                        <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                            <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
+                            Office
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <!-- Expandable Menu for Products -->
+                      <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                          <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
+                          Office
+                      </a>
+                  </li>
                     </ul>
                 </div>
             </div>
@@ -136,15 +197,11 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <button id="sortAsc" class="btn btn-light">Sort Brand Ascending</button>
-                        <button id="sortDesc" class="btn btn-light">Sort Brand Descending</button>
-                    </div>
-                    <div class="col-md-4">
+                <div class="button-container mb-3">
+                    <div>
                         <div class="dropdown">
                           <button class="btn btn-light dropdown-toggle" type="button" id="brandsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            Brands
+                            <i class='fas fa-th-large'></i> All Brands
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="brandsDropdown">
                             <li><a class="dropdown-item" href="#" data-category="all">All Brands</a></li>
@@ -163,15 +220,55 @@
                           </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Import/Export</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Meeting</button>
+
+                    <div>
+                      <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="deskDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                          Desk
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="deskDropdown">
+                          <li><a class="dropdown-item" href="#" data-category="all">Item 1</a></li>
+                          <li><a class="dropdown-item" href="#" data-category="Automation">Item 2</a></li>
+                          <li><a class="dropdown-item" href="#" data-category="E-commerce">Item 3</a></li>
+                          <li><a class="dropdown-item" href="#" data-category="B2B">Item 4</a></li>
+                        </ul>
+                      </div>
+                  </div>
+
+                  <div>
+                    <div class="dropdown">
+                      <button class="btn btn-light dropdown-toggle" type="button" id="deskDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tags
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="deskDropdown">
+                        <li><a class="dropdown-item" href="#" data-category="all">Item 1</a></li>
+                        <li><a class="dropdown-item" href="#" data-category="Automation">Item 2</a></li>
+                        <li><a class="dropdown-item" href="#" data-category="E-commerce">Item 3</a></li>
+                        <li><a class="dropdown-item" href="#" data-category="B2B">Item 4</a></li>
+                      </ul>
+                    </div>
+                </div>
+
+                    <div>
+                      <button id="sortToggle" class="btn btn-light">
+                        <span id="sortIcon" class="fas fa-sort-alpha-down"></span> Sort
+                      </button>
+                    </div>
+
+                    <div>
+                      <button id="sortToggle" class="btn btn-light">
+                        <span id="sortIcon" class="fas fa-sliders-h"></span> Filter
+                      </button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary">Import/Export</button>
+                        <button type="button" class="btn btn-outline-secondary">Meeting</button>
                     </div>
                 </div>
 
                 <!-- Table -->
                 <div class="table-responsive">
-                    <table class="table table-striped table-sm">
+                    <table class="table table-sm">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -205,9 +302,9 @@
                                     <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
                                     <img src="assets/img/user6.png" class="rounded-circle member-img" alt="user6" width="30">
                                 </td>
-                                <td>Automation</td>
-                                <td>#DigitalTransformation</td>
-                                <td>In 30 minutes</td>
+                                <td><span class="badge badge-custom-purple">Automation</span></td>
+                                <td><span class="badge badge-custom-grey">#DigitalTransformation</span></td>
+                                <td><span class="badge badge-custom-green">In 30 minutes</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -222,9 +319,12 @@
                                     <img src="assets/img/user9.png" class="rounded-circle member-img" alt="user9" width="30">
                                     <img src="assets/img/user10.png" class="rounded-circle member-img" alt="user10" width="30">
                                 </td>
-                                <td>E-commerce, B2B</td>
-                                <td>#OnlineShopping</td>
-                                <td>Tomorrow</td>
+                                <td>
+                                  <span class="badge badge-custom-orange">E-commerce</span>
+                                  <span class="badge badge-custom-yellow">B2B</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#OnlineShopping</span></td>
+                                <td><span class="badge badge-custom-blue">Tomorrow</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -239,9 +339,12 @@
                                     <img src="assets/img/user13.png" class="rounded-circle member-img" alt="user13" width="30">
                                     <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
                                 </td>
-                                <td>SAAS, Mobile</td>
-                                <td>#TechInnovation</td>
-                                <td>Tomorrow</td>
+                                <td>
+                                  <span class="badge badge-custom-green">SAAS</span>
+                                  <span class="badge badge-custom-yellow">Mobile</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#TechInnovation</span></td>
+                                <td><span class="badge badge-custom-blue">Tomorrow</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -258,9 +361,9 @@
                                     <img src="assets/img/user6.png" class="rounded-circle member-img" alt="user6" width="30">
                                     <img src="assets/img/user7.png" class="rounded-circle member-img" alt="user7" width="30">
                                 </td>
-                                <td>Marketplace</td>
-                                <td>#BuySellOnline</td>
-                                <td>In 6 hours</td>
+                                <td><span class="badge badge-custom-green">Marketplace</span></td>
+                                <td><span class="badge badge-custom-grey">#BuySellOnline</span></td>
+                                <td><span class="badge badge-custom-green">In 6 hours</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -273,9 +376,12 @@
                                     <img src="assets/img/user8.png" class="rounded-circle member-img" alt="user8" width="30">
                                     <img src="assets/img/user9.png" class="rounded-circle member-img" alt="user9" width="30">
                                 </td>
-                                <td>B2B, B2C</td>
-                                <td>#BusinessPartnerships</td>
-                                <td>No contact</td>
+                                <td>
+                                  <span class="badge badge-custom-orange">B2B</span>
+                                  <span class="badge badge-custom-yellow">B2C</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#BusinessPartnerships</span></td>
+                                <td><span class="badge badge-custom-red">No contact</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -291,9 +397,12 @@
                                     <img src="assets/img/user13.png" class="rounded-circle member-img" alt="user13" width="30">
                                     <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
                                 </td>
-                                <td>Technology, SAAS</td>
-                                <td>#SmartFinance</td>
-                                <td>In 1 hour</td>
+                                <td>
+                                  <span class="badge badge-custom-blue">Technology</span>
+                                  <span class="badge badge-custom-green">SAAS</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#SmartFinance</span></td>
+                                <td><span class="badge badge-custom-green">In 1 hour</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -311,9 +420,12 @@
                                     <img src="assets/img/user7.png" class="rounded-circle member-img" alt="user7" width="30">
                                     <img src="assets/img/user8.png" class="rounded-circle member-img" alt="user8" width="30">
                                 </td>
-                                <td>Finance, Automation</td>
-                                <td>#SmartFinance</td>
-                                <td>In 30 minutes</td>
+                                <td>
+                                  <span class="badge badge-custom-yellow">Finance</span>
+                                  <span class="badge badge-custom-purple">Automation</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#SmartFinance</span></td>
+                                <td><span class="badge badge-custom-green">In 30 minutes</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -327,9 +439,9 @@
                                     <img src="assets/img/user10.png" class="rounded-circle member-img" alt="user10" width="30">
                                     <img src="assets/img/user11.png" class="rounded-circle member-img" alt="user11" width="30">
                                 </td>
-                                <td>Transportation</td>
-                                <td>#LogisticsTech</td>
-                                <td>Next month</td>
+                                <td><span class="badge badge-custom-yellow">Transportation</span></td>
+                                <td><span class="badge badge-custom-grey">#LogisticsTech</span></td>
+                                <td><span class="badge badge-custom-grey">Next month</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -345,9 +457,12 @@
                                     <img src="assets/img/user2.png" class="rounded-circle member-img" alt="user2" width="30">
                                     <img src="assets/img/user3.png" class="rounded-circle member-img" alt="user3" width="30">
                                 </td>
-                                <td>Publishing, B2C</td>
-                                <td>#B2CMarketing</td>
-                                <td>No contact</td>
+                                <td>
+                                  <span class="badge badge-custom-pink">Publishing</span>
+                                  <span class="badge badge-custom-yellow">B2C</span>
+                                </td>
+                                <td><span class="badge badge-custom-grey">#B2CMarketing</span></td>
+                                <td><span class="badge badge-custom-red">No contact</span></td>
                             </tr>
                             <tr>
                                 <td>
@@ -360,14 +475,14 @@
                                     <img src="assets/img/user4.png" class="rounded-circle member-img" alt="user4" width="30">
                                     <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
                                 </td>
-                                <td>Web Services</td>
-                                <td>#APIIntegration</td>
-                                <td>Next month</td>
+                                <td><span class="badge badge-custom-blue">Web Services</span></td>
+                                <td><span class="badge badge-custom-grey">#APIIntegration</span></td>
+                                <td><span class="badge badge-custom-grey">Next month</span></td>
                             </tr>
                             <tr class="brand-count-row">
                                 <td>
                                 </td>
-                                <td>Count: 10</td>
+                                <td>10 count</td>
                                 <td>+ Add Calculation</td>
                                 <td>+ Add Calculation</td>
                                 <td>+ Add Calculation</td>
@@ -438,36 +553,50 @@
 
 
 
-    // Sorting functionality for the Brand column
-    const sortAscButton = document.getElementById('sortAsc');
-    const sortDescButton = document.getElementById('sortDesc');
+// Sorting functionality for the Brand column
+document.addEventListener('DOMContentLoaded', function () {
+    const sortButton = document.getElementById('sortToggle');
+    const sortIcon = document.getElementById('sortIcon');
+    let isAscending = true;
 
     function sortTable(order) {
-      const rowsArray = Array.from(rows);
-      
-      rowsArray.sort(function(a, b) {
-        const brandA = a.cells[1].innerText.toLowerCase();
-        const brandB = b.cells[1].innerText.toLowerCase();
+        const tableBody = document.querySelector('tbody'); // Assuming you have a single tbody in your table
+        const rows = tableBody.querySelectorAll('tr');
+        const rowsArray = Array.from(rows);
+        
+        rowsArray.sort(function(a, b) {
+            const brandA = a.cells[1].innerText.toLowerCase(); // Adjust index if Brand is not the second column
+            const brandB = b.cells[1].innerText.toLowerCase();
 
-        if (order === 'asc') {
-          return brandA > brandB ? 1 : -1;
-        } else {
-          return brandA < brandB ? 1 : -1;
-        }
-      });
+            if (order === 'asc') {
+                return brandA > brandB ? 1 : -1;
+            } else {
+                return brandA < brandB ? 1 : -1;
+            }
+        });
 
-      // Append sorted rows back to the table body
-      rowsArray.forEach(row => tableBody.appendChild(row));
+        // Append sorted rows back to the table body
+        rowsArray.forEach(row => tableBody.appendChild(row));
     }
 
-    // Event listeners for sorting buttons
-    sortAscButton.addEventListener('click', function() {
-      sortTable('asc');
+    // Event listener for sorting toggle button
+    sortButton.addEventListener('click', function () {
+        if (isAscending) {
+            sortTable('asc');
+            sortButton.textContent = 'Sort Brand ';
+            sortButton.appendChild(sortIcon);
+            sortIcon.className = 'fas fa-sort-alpha-down';
+        } else {
+            sortTable('desc');
+            sortButton.textContent = 'Sort Brand ';
+            sortButton.appendChild(sortIcon);
+            sortIcon.className = 'fas fa-sort-alpha-down-alt';
+        }
+        isAscending = !isAscending;
     });
+});
 
-    sortDescButton.addEventListener('click', function() {
-      sortTable('desc');
-    });
+
 
 
 
@@ -657,7 +786,7 @@ function updateBrandCount() {
 
   // Find the predefined count row and update it
   const countRow = document.querySelector('.brand-count-row');
-  countRow.querySelector('td:nth-child(2)').textContent = `Count: ${brandCount}`;
+  countRow.querySelector('td:nth-child(2)').textContent = `${brandCount} count`;
 }
 
 // Call this function when the page loads to initialize the count

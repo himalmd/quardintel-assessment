@@ -1,13 +1,22 @@
 
 /* Base styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
     background-color: #fff;
     margin: 0;
     padding: 0;
     color: #333;
     overflow-x: hidden; /* Prevent horizontal overflow */
-    font-size: 14px;
+    font-size: 16px;
+}
+
+.nav-link{
+    color: #333 !important;
+}
+
+.nav{
+    --bs-nav-link-padding-x: 0px;
 }
 
 .btn{
@@ -37,7 +46,7 @@ body {
 }
 
 .table th, .table td {
-    padding: 15px;
+    padding: 5px;
     text-align: left;
     vertical-align: middle;
 }
@@ -73,3 +82,62 @@ body {
     border: 2px solid #fff; /* Optional border for user avatar */
   }
   
+  .badge {
+    margin: 5px;
+    font-size: 14px;
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+.badge-custom-purple {
+    background-color: #d3b3ff;
+    color: #5e3bae;
+    border: 1px solid #5e3bae;
+}
+.badge-custom-orange {
+    background-color: #f9d7b9;
+    color: #c07d3a;
+    border: 1px solid #c07d3a;
+}
+.badge-custom-yellow {
+    background-color: #fff5ba;
+    color: #d4aa00;
+    border: 1px solid #d4aa00;
+}
+.badge-custom-blue {
+    background-color: #cfe9ff;
+    color: #0056b3;
+    border: 1px solid #0056b3;
+}
+.badge-custom-green {
+    background-color: #c9f7c8;
+    color: #3b7a57;
+    border: 1px solid #3b7a57;
+}
+.badge-custom-red {
+    background-color: #f5c6c6;
+    color: #b30000;
+    border: 1px solid #b30000;
+}
+.badge-custom-grey {
+    background-color: #e2e3e5;
+    color: #636c72;
+    border: 1px solid #636c72;
+}
+.badge-custom-pink {
+    background-color: #f6c7d9;
+    color: #c2185b;
+    border: 1px solid #c2185b;
+}
+
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button-container .btn {
+    flex-grow: 1;
+    margin: 5px;
+}

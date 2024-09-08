@@ -61,3 +61,15 @@ body {
     margin-left: 0; /* Ensure the first image does not have a negative margin */
   }
   
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border: 2px solid #fff; /* Optional border for user avatar */
+  }
+  

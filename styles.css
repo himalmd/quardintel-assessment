@@ -11,6 +11,10 @@ body {
     font-size: 16px;
 }
 
+a{
+    color: #000;
+}
+
 .nav-link{
     color: #333 !important;
 }
@@ -140,4 +144,14 @@ body {
 .button-container .btn {
     flex-grow: 1;
     margin: 5px;
+}
+
+.sticky-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    z-index: 1000;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
 }

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Management Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- Add Font Awesome CDN -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+            <!-- Sidebar -->
+            <div class="col-2 bg-light sidebar">
+                <div class="position-sticky">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <h2>InnovateHub</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between" aria-current="page" href="#">
+                                <i class="fas fa-palette me-2"></i> <!-- Icon for Design Team -->
+                                Design Team
+                                <span class="text-muted ms-auto">⌘ + 1</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between" href="#">
+                                <i class="fas fa-bullhorn me-2"></i> <!-- Icon for Marketing Team -->
+                                Marketing Team
+                                <span class="text-muted ms-auto">⌘ + 2</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between" href="#">
+                                <i class="fas fa-code me-2"></i> <!-- Icon for Development Team -->
+                                Development Team
+                                <span class="text-muted ms-auto">⌘ + 3</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <a class="nav-link" href="#">
+                        <i class="far fa-plus-square"></i> <!-- Icon for Development Team -->
+                        Create a Team
+                    </a>
+                    <hr>
+                    <h6 class="sidebar-heading">Folders</h6>
+                    <ul class="nav flex-column mb-2">
+                        <li class="nav-item">
+                            <!-- Expandable Menu for Products -->
+                            <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                                <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
+                                Products
+                            </a>
+                            <div class="collapse" id="productsSubMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-road me-2"></i> Roadmap</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-comments me-2"></i> Feedback</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Performance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-chart-pie me-2"></i> Analytics</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-plus-circle me-2"></i> Add New Sub</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Expandable Menu for Products -->
+                            <a class="nav-link" data-bs-toggle="collapse" href="#productsSubMenu" role="button" aria-expanded="false" aria-controls="productsSubMenu">
+                                <i class="far fa-folder me-2"></i> <!-- Icon for Products -->
+                                Products
+                            </a>
+                            <div class="collapse" id="productsSubMenu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-road me-2"></i> Roadmap</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-comments me-2"></i> Feedback</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-chart-line me-2"></i> Performance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-users me-2"></i> Team</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-chart-pie me-2"></i> Analytics</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"><i class="fas fa-plus-circle me-2"></i> Add New Sub</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+
+
+            <!-- Main Content -->
+            <main class="col-10">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Products</h1>
+                    <div class="btn-toolbar mb-2 col-6">
+                        <div class="btn-group me-2 col-8">
+                            <input type="text" id="tableSearch" class="form-control" placeholder="Search by Brand, Description, or Members">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <button id="sortAsc" class="btn btn-light">Sort Brand Ascending</button>
+                        <button id="sortDesc" class="btn btn-light">Sort Brand Descending</button>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="dropdown">
+                          <button class="btn btn-light dropdown-toggle" type="button" id="brandsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            Brands
+                          </button>
+                          <ul class="dropdown-menu" aria-labelledby="brandsDropdown">
+                            <li><a class="dropdown-item" href="#" data-category="all">All Brands</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Automation">Automation</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="E-commerce">E-commerce</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="B2B">B2B</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="SAAS">SAAS</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Mobile">Mobile</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Marketplace">Marketplace</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="B2C">B2C</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Technology">Technology</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Finance">Finance</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Transportation">Transportation</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Publishing">Publishing</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="Web Services">Web Services</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Import/Export</button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">Meeting</button>
+                    </div>
+                </div>
+
+                <!-- Table -->
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>
+                                    Brand
+                                    <!-- Add Plus (+) Icon to the Brands Header -->
+                                    <button id="addRowButton" class="btn btn-sm btn-outline-success ms-2">
+                                        +
+                                    </button>
+                                </th>
+                                <th>Description</th>
+                                <th>Members</th>
+                                <th>Categories</th>
+                                <th>Tags</th>
+                                <th>Next Meeting</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productTableBody">
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/wix.png" alt="Wix Logo" class="rounded img-thumbnail" width="40">Wix</td>
+                                <td>Develop a personalized fit...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
+                                    <img src="assets/img/user2.png" class="rounded-circle member-img" alt="user2" width="30">
+                                    <img src="assets/img/user3.png" class="rounded-circle member-img" alt="user3" width="30">
+                                    <img src="assets/img/user4.png" class="rounded-circle member-img" alt="user4" width="30">
+                                    <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
+                                    <img src="assets/img/user6.png" class="rounded-circle member-img" alt="user6" width="30">
+                                </td>
+                                <td>Automation</td>
+                                <td>#DigitalTransformation</td>
+                                <td>In 30 minutes</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/shopify.png" alt="Shopify Logo" class="rounded img-thumbnail" width="40">Shopify</td>
+                                <td>Introduce a cloud-based p...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user7.png" class="rounded-circle member-img" alt="user7" width="30">
+                                    <img src="assets/img/user8.png" class="rounded-circle member-img" alt="user8" width="30">
+                                    <img src="assets/img/user9.png" class="rounded-circle member-img" alt="user9" width="30">
+                                    <img src="assets/img/user10.png" class="rounded-circle member-img" alt="user10" width="30">
+                                </td>
+                                <td>E-commerce, B2B</td>
+                                <td>#OnlineShopping</td>
+                                <td>Tomorrow</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/mailchimp.png" alt="Mailchimp Logo" class="rounded img-thumbnail" width="40">Mailchimp</td>
+                                <td>Develop a mobile app aime...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user11.png" class="rounded-circle member-img" alt="user11" width="30">
+                                    <img src="assets/img/user12.png" class="rounded-circle member-img" alt="user12" width="30">
+                                    <img src="assets/img/user13.png" class="rounded-circle member-img" alt="user13" width="30">
+                                    <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
+                                </td>
+                                <td>SAAS, Mobile</td>
+                                <td>#TechInnovation</td>
+                                <td>Tomorrow</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/paypal.png" alt="PayPal Logo" class="rounded img-thumbnail" width="40">PayPal</td>
+                                <td>This program could inclu...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user2.png" class="rounded-circle member-img" alt="user2" width="30">
+                                    <img src="assets/img/user3.png" class="rounded-circle member-img" alt="user3" width="30">
+                                    <img src="assets/img/user4.png" class="rounded-circle member-img" alt="user4" width="30">
+                                    <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
+                                    <img src="assets/img/user6.png" class="rounded-circle member-img" alt="user6" width="30">
+                                    <img src="assets/img/user7.png" class="rounded-circle member-img" alt="user7" width="30">
+                                </td>
+                                <td>Marketplace</td>
+                                <td>#BuySellOnline</td>
+                                <td>In 6 hours</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/disney.png" alt="Disney Logo" class="rounded img-thumbnail" width="40">Disney</td>
+                                <td>Introduce a B2B solution f...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user8.png" class="rounded-circle member-img" alt="user8" width="30">
+                                    <img src="assets/img/user9.png" class="rounded-circle member-img" alt="user9" width="30">
+                                </td>
+                                <td>B2B, B2C</td>
+                                <td>#BusinessPartnerships</td>
+                                <td>No contact</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/Intercom.png" alt="Wix Logo" class="rounded img-thumbnail" width="40">Intercom</td>
+                                <td>Implement an AI-driven C...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user10.png" class="rounded-circle member-img" alt="user10" width="30">
+                                    <img src="assets/img/user11.png" class="rounded-circle member-img" alt="user11" width="30">
+                                    <img src="assets/img/user12.png" class="rounded-circle member-img" alt="user12" width="30">
+                                    <img src="assets/img/user13.png" class="rounded-circle member-img" alt="user13" width="30">
+                                    <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
+                                </td>
+                                <td>Technology, SAAS</td>
+                                <td>#SmartFinance</td>
+                                <td>In 1 hour</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/google.png" alt="Wix Logo" class="rounded img-thumbnail" width="40">Google</td>
+                                <td>Offer a comprehensive cy...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user2.png" class="rounded-circle member-img" alt="user2" width="30">
+                                    <img src="assets/img/user3.png" class="rounded-circle member-img" alt="user3" width="30">
+                                    <img src="assets/img/user4.png" class="rounded-circle member-img" alt="user4" width="30">
+                                    <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
+                                    <img src="assets/img/user6.png" class="rounded-circle member-img" alt="user6" width="30">
+                                    <img src="assets/img/user7.png" class="rounded-circle member-img" alt="user7" width="30">
+                                    <img src="assets/img/user8.png" class="rounded-circle member-img" alt="user8" width="30">
+                                </td>
+                                <td>Finance, Automation</td>
+                                <td>#SmartFinance</td>
+                                <td>In 30 minutes</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/evernote.png" alt="Wix Logo" class="rounded img-thumbnail" width="40">Evernote</td>
+                                <td>This could include smart i...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user9.png" class="rounded-circle member-img" alt="user9" width="30">
+                                    <img src="assets/img/user10.png" class="rounded-circle member-img" alt="user10" width="30">
+                                    <img src="assets/img/user11.png" class="rounded-circle member-img" alt="user11" width="30">
+                                </td>
+                                <td>Transportation</td>
+                                <td>#LogisticsTech</td>
+                                <td>Next month</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/microsoft.svg.png" alt="Wix Logo" class="rounded img-thumbnail" width="40">Microsoft</td>
+                                <td>Launch an advisory servic...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user12.png" class="rounded-circle member-img" alt="user12" width="30">
+                                    <img src="assets/img/user13.png" class="rounded-circle member-img" alt="user13" width="30">
+                                    <img src="assets/img/user1.png" class="rounded-circle member-img" alt="user1" width="30">
+                                    <img src="assets/img/user2.png" class="rounded-circle member-img" alt="user2" width="30">
+                                    <img src="assets/img/user3.png" class="rounded-circle member-img" alt="user3" width="30">
+                                </td>
+                                <td>Publishing, B2C</td>
+                                <td>#B2CMarketing</td>
+                                <td>No contact</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- Checkbox for row selection -->
+                                    <input type="checkbox" name="selectRow" value="wix" class="row-checkbox">
+                                </td>
+                                <td><img src="assets/img/brands/invision.jpg" alt="Wix Logo" class="rounded img-thumbnail" width="40">Invision</td>
+                                <td>The tool would analyze tre...</td>
+                                <td class="members-thumbnails">
+                                    <img src="assets/img/user4.png" class="rounded-circle member-img" alt="user4" width="30">
+                                    <img src="assets/img/user5.png" class="rounded-circle member-img" alt="user5" width="30">
+                                </td>
+                                <td>Web Services</td>
+                                <td>#APIIntegration</td>
+                                <td>Next month</td>
+                            </tr>
+                            <tr class="brand-count-row">
+                                <td>
+                                </td>
+                                <td>Count: 10</td>
+                                <td>+ Add Calculation</td>
+                                <td>+ Add Calculation</td>
+                                <td>+ Add Calculation</td>
+                                <td>+ Add Calculation</td>
+                                <td>+ Add Calculation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Script for Row Selection and Search -->
+  <script>
+    // Event listener for checkboxes to toggle row selection
+    const checkboxes = document.querySelectorAll('.row-checkbox');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        const row = this.closest('tr');
+        if (this.checked) {
+          row.classList.add('table-active');
+        } else {
+          row.classList.remove('table-active');
+        }
+      });
+    });
+
+
+
+
+
+
+    // Search functionality
+    const searchBox = document.getElementById('tableSearch');
+    const tableBody = document.getElementById('productTableBody');
+    const rows = tableBody.getElementsByTagName('tr');
+
+    searchBox.addEventListener('keyup', function() {
+      const searchText = searchBox.value.toLowerCase();
+      
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        let found = false;
+
+        // Loop through each cell in the row
+        for (let j = 0; j < cells.length; j++) {
+          const cellText = cells[j].innerText.toLowerCase();
+          if (cellText.indexOf(searchText) > -1) {
+            found = true;
+            break;
+          }
+        }
+
+        // Show or hide row based on match
+        if (found) {
+          rows[i].style.display = '';
+        } else {
+          rows[i].style.display = 'none';
+        }
+      }
+    });
+
+
+
+
+
+
+    // Sorting functionality for the Brand column
+    const sortAscButton = document.getElementById('sortAsc');
+    const sortDescButton = document.getElementById('sortDesc');
+
+    function sortTable(order) {
+      const rowsArray = Array.from(rows);
+      
+      rowsArray.sort(function(a, b) {
+        const brandA = a.cells[1].innerText.toLowerCase();
+        const brandB = b.cells[1].innerText.toLowerCase();
+
+        if (order === 'asc') {
+          return brandA > brandB ? 1 : -1;
+        } else {
+          return brandA < brandB ? 1 : -1;
+        }
+      });
+
+      // Append sorted rows back to the table body
+      rowsArray.forEach(row => tableBody.appendChild(row));
+    }
+
+    // Event listeners for sorting buttons
+    sortAscButton.addEventListener('click', function() {
+      sortTable('asc');
+    });
+
+    sortDescButton.addEventListener('click', function() {
+      sortTable('desc');
+    });
+
+
+
+
+
+    // Dropdown filter functionality based on the "Categories" column
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', function(event) {
+        event.preventDefault();
+        const category = this.getAttribute('data-category');
+
+        // Loop through the rows and show/hide based on the selected category
+        for (let i = 0; i < rows.length; i++) {
+          const categoriesCell = rows[i].cells[4].innerText.toLowerCase(); // Categories are in the 5th cell (index 4)
+          const categoriesArray = categoriesCell.split(',').map(cat => cat.trim());
+
+          // Show rows that match the category or show all if "all" is selected
+          if (category === 'all' || categoriesArray.includes(category.toLowerCase())) {
+            rows[i].style.display = '';
+          } else {
+            rows[i].style.display = 'none';
+          }
+        }
+      });
+    });
+
+
+
+
+
+
+// Add New Row
+// Only declare the variable if it's not already declared
+let productTableBody = document.getElementById('productTableBody');
+let addRowButton = document.getElementById('addRowButton');
+
+// Function to add a new editable row
+function addNewRow() {
+  const newRow = document.createElement('tr');
+
+  // Create editable cells for each column in the new row
+  newRow.innerHTML = `
+    <td><input type="checkbox" class="row-checkbox"></td>
+    <td><input type="text" class="form-control" placeholder="Enter brand name"></td>
+    <td><input type="text" class="form-control" placeholder="Enter description"></td>
+    <td><input type="number" class="form-control" placeholder="Members"></td>
+    <td><input type="text" class="form-control" placeholder="Categories"></td>
+    <td><input type="text" class="form-control" placeholder="Tags"></td>
+    <td><input type="text" class="form-control" placeholder="Next Meeting"></td>
+  `;
+
+  // Append the new row to the table body
+  productTableBody.appendChild(newRow);
+}
+
+// Event listener for the "+" button to add a new row
+addRowButton.addEventListener('click', function() {
+  addNewRow();
+});
+
+
+
+
+
+
+// Function to add a new editable row with checkboxes for the Members column
+function addNewRow() {
+  const newRow = document.createElement('tr');
+  newRow.classList.add('new-row');  // Add a class to identify new rows
+
+  newRow.innerHTML = `
+    <td><input type="checkbox" class="row-checkbox" disabled></td>
+    <td><input type="text" class="form-control brand-input" placeholder="Enter brand name"></td>
+    <td><input type="text" class="form-control" placeholder="Enter description"></td>
+    <td>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="memberDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Members
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="memberDropdown">
+          <li><label class="dropdown-item"><input type="checkbox" value="User1"> User1</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User2"> User2</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User3"> User3</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User4"> User4</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User5"> User5</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User6"> User6</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User7"> User7</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User8"> User8</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User9"> User9</label></li>
+          <li><label class="dropdown-item"><input type="checkbox" value="User10"> User10</label></li>
+        </ul>
+      </div>
+    </td>
+    <td><input type="text" class="form-control" placeholder="Categories"></td>
+    <td><input type="text" class="form-control" placeholder="Tags"></td>
+    <td><input type="text" class="form-control" placeholder="Next Meeting"></td>
+    <td>
+      <button class="btn btn-success btn-save">Save</button>
+      <button class="btn btn-danger btn-cancel">Cancel</button>
+    </td>
+  `;
+
+  // Append the new row to the table body (before the count row)
+  productTableBody.insertBefore(newRow, productTableBody.querySelector('.brand-count-row'));
+
+  // Profile picture URLs corresponding to each user
+  const memberProfiles = {
+    "User1": "assets/img/user1.png",
+    "User2": "assets/img/user2.png",
+    "User3": "assets/img/user3.png",
+    "User4": "assets/img/user4.png",
+    "User5": "assets/img/user5.png",
+    "User6": "assets/img/user6.png",
+    "User7": "assets/img/user7.png",
+    "User8": "assets/img/user8.png",
+    "User9": "assets/img/user9.png",
+    "User10": "assets/img/user10.png"
+  };
+
+  // Add event listener to update the dropdown button with selected member thumbnails
+  const checkboxes = newRow.querySelectorAll('.dropdown-menu input[type="checkbox"]');
+  const dropdownButton = newRow.querySelector('.dropdown-toggle');
+
+  checkboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const selectedMembers = Array.from(checkboxes)
+        .filter(i => i.checked)
+        .map(i => i.value)
+        .map(member => `<img src="${memberProfiles[member]}" class="rounded-circle" alt="${member}" width="30" height="30">`)
+        .join(' ');
+      dropdownButton.innerHTML = selectedMembers || 'Select Members';
+    });
+
+    // Prevent dropdown from closing on click
+    checkbox.parentElement.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  });
+
+  // Event listener for Save button
+  newRow.querySelector('.btn-save').addEventListener('click', function() {
+    // Enable the checkbox to be clickable after saving
+    newRow.querySelector('.row-checkbox').disabled = false;
+
+    // Disable all input fields to finalize the row
+    newRow.querySelectorAll('input').forEach(input => input.disabled = true);
+    newRow.querySelectorAll('select').forEach(select => select.disabled = true);
+    newRow.querySelector('.dropdown-toggle').disabled = true;
+
+    // Remove the Save and Cancel buttons
+    newRow.querySelector('td:last-child').innerHTML = '';
+
+    // Update the brand count
+    updateBrandCount();
+  });
+
+  // Event listener for Cancel button
+  newRow.querySelector('.btn-cancel').addEventListener('click', function() {
+    // Remove the new row from the table
+    newRow.remove();
+
+    // Update the brand count
+    updateBrandCount();
+  });
+
+  // Add event listener to the brand input field to update the count dynamically
+  newRow.querySelector('.brand-input').addEventListener('input', updateBrandCount);
+
+  // Update the brand count initially after adding the new row
+  updateBrandCount();
+}
+
+// Function to update the brand count
+function updateBrandCount() {
+  // Count all rows that have a brand name, including both existing and new rows
+  const brandRows = document.querySelectorAll('#productTableBody tr:not(.brand-count-row) td:nth-child(2)');
+  let brandCount = 0;
+
+  brandRows.forEach(row => {
+    const brandName = row.textContent.trim() || row.querySelector('.brand-input')?.value.trim();
+    if (brandName) {
+      brandCount++;
+    }
+  });
+
+  // Find the predefined count row and update it
+  const countRow = document.querySelector('.brand-count-row');
+  countRow.querySelector('td:nth-child(2)').textContent = `Count: ${brandCount}`;
+}
+
+// Call this function when the page loads to initialize the count
+updateBrandCount();
+
+
+
+
+
+  </script>
+</body>
+</html>

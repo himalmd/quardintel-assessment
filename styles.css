@@ -1,0 +1,63 @@
+
+/* Base styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    font-size: 14px;
+}
+
+.btn{
+    background-color: #fff;
+    color: #666666 !important;
+    border: 1px solid #999999;
+}
+
+/* Sidebar styling */
+#sidebar {
+    background-color: #fff;
+    border-right: 1px solid #e0e0e0;
+    height: 100vh;  /* Full viewport height */
+    padding: 20px;
+    position: fixed;  /* Fixed position */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto; /* Allow vertical scrolling if necessary */
+}
+
+.table {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0; /* Remove margin to prevent overflow */
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.members-thumbnails {
+    display: flex;
+    align-items: center;
+  }
+  
+  .member-img {
+    width: 40px; /* Adjust the size of thumbnails */
+    height: 40px;
+    border-radius: 50%; /* To make them circular */
+    margin-left: -15px; /* Negative margin to create overlap (25% of the width) */
+    position: relative;
+    z-index: 1; /* Layer control for overlapping */
+    border: 2px solid white; /* Optional: Add a border to separate overlapping images visually */
+  }
+  
+  .member-img:first-child {
+    margin-left: 0; /* Ensure the first image does not have a negative margin */
+  }
+  

@@ -517,101 +517,91 @@
                 </div>
 
                 <!-- Sticky action bar at the bottom -->
-                <div class="sticky-bar bg-light d-flex align-items-center justify-content-between p-2 border-top">
-                  <!-- Selected items count -->
-                  <div class="d-flex align-items-center">
-                      <span class="badge bg-dark text-white me-2">3</span>
-                      <span>selected</span>
-                  </div>
-                  
-                  <!-- Action buttons -->
-                  <div class="d-flex align-items-center">
-                      <button class="btn btn-outline-dark me-2">
-                          <i class="fas fa-archive"></i> Archive
-                      </button>
-                      <button class="btn btn-outline-danger me-2">
-                          <i class="fas fa-trash-alt"></i> Delete
-                      </button>
-                      
-                      <!-- More dropdown -->
-                      <div class="dropdown me-2">
-                          <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="moreDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                              More
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-                              <li><a class="dropdown-item" href="#">Action 1</a></li>
-                              <li><a class="dropdown-item" href="#">Action 2</a></li>
-                          </ul>
+                <div class="sticky-bar-wrapper">
+                  <div class="sticky-bar bg-light d-flex align-items-center justify-content-between p-2 border-top">
+                      <!-- Selected items count -->
+                      <div class="d-flex align-items-center">
+                          <span class="badge bg-dark text-white me-2">3</span>
+                          <span>selected</span>
                       </div>
 
-                      <!-- Close button -->
-                      <button class="btn btn-outline-secondary">
-                          <i class="fas fa-times"></i>
-                      </button>
+                      <!-- Action buttons -->
+                      <div class="d-flex align-items-center">
+                          <button class="btn btn-outline-dark me-2">
+                              <i class="fas fa-archive"></i> Archive
+                          </button>
+                          <button class="btn btn-outline-danger me-2">
+                              <i class="fas fa-trash-alt"></i> Delete
+                          </button>
+                          
+                          <!-- More dropdown -->
+                          <div class="dropdown me-2">
+                              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="moreDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                  More
+                              </button>
+                              <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                                  <li><a class="dropdown-item" href="#">Action 1</a></li>
+                                  <li><a class="dropdown-item" href="#">Action 2</a></li>
+                              </ul>
+                          </div>
+
+                          <!-- Close button -->
+                          <button class="btn btn-outline-secondary">
+                              <i class="fas fa-times"></i>
+                          </button>
+                      </div>
                   </div>
                 </div>
-
-
             </main>
         </div>
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom Script for Row Selection and Search -->
-  <script>
-    // Event listener for checkboxes to toggle row selection
-    const checkboxes = document.querySelectorAll('.row-checkbox');
-    checkboxes.forEach(checkbox => {
-      checkbox.addEventListener('change', function() {
-        const row = this.closest('tr');
-        if (this.checked) {
-          row.classList.add('table-active');
-        } else {
-          row.classList.remove('table-active');
-        }
-      });
-    });
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom Script for Row Selection and Search -->
+<script>
+// Event listener for checkboxes to toggle row selection
+const checkboxes = document.querySelectorAll('.row-checkbox');
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    const row = this.closest('tr');
+    if (this.checked) {
+      row.classList.add('table-active');
+    } else {
+      row.classList.remove('table-active');
+    }
+  });
+});
 
+// Search functionality
+const searchBox = document.getElementById('tableSearch');
+const tableBody = document.getElementById('productTableBody');
+const rows = tableBody.getElementsByTagName('tr');
 
+searchBox.addEventListener('keyup', function() {
+  const searchText = searchBox.value.toLowerCase();
+  
+  for (let i = 0; i < rows.length; i++) {
+    const cells = rows[i].getElementsByTagName('td');
+    let found = false;
 
-
-
-
-    // Search functionality
-    const searchBox = document.getElementById('tableSearch');
-    const tableBody = document.getElementById('productTableBody');
-    const rows = tableBody.getElementsByTagName('tr');
-
-    searchBox.addEventListener('keyup', function() {
-      const searchText = searchBox.value.toLowerCase();
-      
-      for (let i = 0; i < rows.length; i++) {
-        const cells = rows[i].getElementsByTagName('td');
-        let found = false;
-
-        // Loop through each cell in the row
-        for (let j = 0; j < cells.length; j++) {
-          const cellText = cells[j].innerText.toLowerCase();
-          if (cellText.indexOf(searchText) > -1) {
-            found = true;
-            break;
-          }
-        }
-
-        // Show or hide row based on match
-        if (found) {
-          rows[i].style.display = '';
-        } else {
-          rows[i].style.display = 'none';
-        }
+    // Loop through each cell in the row
+    for (let j = 0; j < cells.length; j++) {
+      const cellText = cells[j].innerText.toLowerCase();
+      if (cellText.indexOf(searchText) > -1) {
+        found = true;
+        break;
       }
-    });
+    }
 
-
-
-
-
+    // Show or hide row based on match
+    if (found) {
+      rows[i].style.display = '';
+    } else {
+      rows[i].style.display = 'none';
+    }
+  }
+});
 
 // Sorting functionality for the Brand column
 document.addEventListener('DOMContentLoaded', function () {
@@ -657,40 +647,32 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// Dropdown filter functionality based on the "Categories" column
+const dropdownItems = document.querySelectorAll('.dropdown-item');
 
+dropdownItems.forEach(item => {
+  item.addEventListener('click', function(event) {
+    event.preventDefault();
+    const category = this.getAttribute('data-category');
 
+    // Loop through the rows and show/hide based on the selected category
+    for (let i = 0; i < rows.length; i++) {
+      const categoriesCell = rows[i].cells[4].innerText.toLowerCase(); // Categories are in the 5th cell (index 4)
+      const categoriesArray = categoriesCell.split(',').map(cat => cat.trim());
 
-
-
-    // Dropdown filter functionality based on the "Categories" column
-    const dropdownItems = document.querySelectorAll('.dropdown-item');
-
-    dropdownItems.forEach(item => {
-      item.addEventListener('click', function(event) {
-        event.preventDefault();
-        const category = this.getAttribute('data-category');
-
-        // Loop through the rows and show/hide based on the selected category
-        for (let i = 0; i < rows.length; i++) {
-          const categoriesCell = rows[i].cells[4].innerText.toLowerCase(); // Categories are in the 5th cell (index 4)
-          const categoriesArray = categoriesCell.split(',').map(cat => cat.trim());
-
-          // Show rows that match the category or show all if "all" is selected
-          if (category === 'all' || categoriesArray.includes(category.toLowerCase())) {
-            rows[i].style.display = '';
-          } else {
-            rows[i].style.display = 'none';
-          }
-        }
-      });
-    });
-
-
-
-
+      // Show rows that match the category or show all if "all" is selected
+      if (category === 'all' || categoriesArray.includes(category.toLowerCase())) {
+        rows[i].style.display = '';
+      } else {
+        rows[i].style.display = 'none';
+      }
+    }
+  });
+});
 
 
 // Add New Row
+
 // Only declare the variable if it's not already declared
 let productTableBody = document.getElementById('productTableBody');
 let addRowButton = document.getElementById('addRowButton');
@@ -720,14 +702,10 @@ addRowButton.addEventListener('click', function() {
 });
 
 
-
-
-
-
 // Function to add a new editable row with checkboxes for the Members column
 function addNewRow() {
   const newRow = document.createElement('tr');
-  newRow.classList.add('new-row');  // Add a class to identify new rows
+  newRow.classList.add('new-row');
 
   newRow.innerHTML = `
     <td><input type="checkbox" class="row-checkbox" disabled></td>
@@ -764,7 +742,6 @@ function addNewRow() {
   // Append the new row to the table body (before the count row)
   productTableBody.insertBefore(newRow, productTableBody.querySelector('.brand-count-row'));
 
-  // Profile picture URLs corresponding to each user
   const memberProfiles = {
     "User1": "assets/img/user1.png",
     "User2": "assets/img/user2.png",
@@ -792,7 +769,6 @@ function addNewRow() {
       dropdownButton.innerHTML = selectedMembers || 'Select Members';
     });
 
-    // Prevent dropdown from closing on click
     checkbox.parentElement.addEventListener('click', function(e) {
       e.stopPropagation();
     });
@@ -800,7 +776,6 @@ function addNewRow() {
 
   // Event listener for Save button
   newRow.querySelector('.btn-save').addEventListener('click', function() {
-    // Enable the checkbox to be clickable after saving
     newRow.querySelector('.row-checkbox').disabled = false;
 
     // Disable all input fields to finalize the row
@@ -817,23 +792,19 @@ function addNewRow() {
 
   // Event listener for Cancel button
   newRow.querySelector('.btn-cancel').addEventListener('click', function() {
-    // Remove the new row from the table
     newRow.remove();
 
-    // Update the brand count
     updateBrandCount();
   });
 
-  // Add event listener to the brand input field to update the count dynamically
   newRow.querySelector('.brand-input').addEventListener('input', updateBrandCount);
 
-  // Update the brand count initially after adding the new row
   updateBrandCount();
 }
 
 // Function to update the brand count
 function updateBrandCount() {
-  // Count all rows that have a brand name, including both existing and new rows
+
   const brandRows = document.querySelectorAll('#productTableBody tr:not(.brand-count-row) td:nth-child(2)');
   let brandCount = 0;
 
@@ -844,16 +815,11 @@ function updateBrandCount() {
     }
   });
 
-  // Find the predefined count row and update it
   const countRow = document.querySelector('.brand-count-row');
   countRow.querySelector('td:nth-child(2)').textContent = `${brandCount} count`;
 }
 
-// Call this function when the page loads to initialize the count
 updateBrandCount();
-
-
-
 
 
   </script>
